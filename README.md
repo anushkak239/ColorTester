@@ -11,6 +11,7 @@ A React-based tool for analyzing image color palettes against brand guidelines a
 - [Technologies Used](#technologies-used)
 - [Core Functionality](#core-functionality)
 - [Colorblind Simulation](#colorblind-simulation)
+- [AI Tools Used](#AI-Tools-Used)
 - [Acknowledgements](#Acknowledgements)
 
 
@@ -102,6 +103,14 @@ The application simulates three types of colorblindness:
    - Red channel: `R`
    - Green channel: `0.95G + 0.05B`
    - Blue channel: `0.433G + 0.567B`
+  
+## AI Tools Used
+This project was developed with the assistance of the following AI tools:
+- **Grok3**: For brainstorming ideas and optimizing code structure.
+- **DeepSeek**: For debugging and improving algorithm efficiency.
+- **ChatGPT**: For generating documentation, writing helper functions, and providing guidance on best practices.
+
+These tools played a significant role in enhancing the development process and ensuring the project's success.
   
  ## Acknowledgements
 
