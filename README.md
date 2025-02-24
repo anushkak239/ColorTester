@@ -1,46 +1,110 @@
-# Getting Started with Create React App
+# Color Tester Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based tool for analyzing image color palettes against brand guidelines and accessibility standards.
 
-## Available Scripts
+![Demo](https://via.placeholder.com/800x400.png?text=Color+Tester+Demo) *Replace with actual screenshot*
 
-In the project directory, you can run:
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Core Functionality](#core-functionality)
+- [Colorblind Simulation](#colorblind-simulation)
+- [Acknowledgements](#Acknowledgements)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+✅ **Image Analysis**
+- Extract 5 dominant colors from uploaded images
+- Display color swatches with hex values
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+🎨 **Brand Compliance**
+- Compare colors to predefined brand palette
+- Identify closest brand color matches using Delta E (CIE76)
+- Threshold: Delta E < 10 for direct matches
 
-### `npm test`
+♿ **Accessibility Checks**
+- WCAG AA contrast ratio validation (4.5:1 minimum)
+- Colorblind impact simulation for:
+  - Protanopia (red-blindness)
+  - Deuteranopia (green-blindness)
+  - Tritanopia (blue-blindness)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+### Prerequisites
+- Node.js (v14+)
+- npm (v6+)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Steps
+1. Clone repository:
+   ```bash
+   git clone https://github.com/yourusername/color-tester.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ## Usage
 
-### `npm run eject`
+1. **Upload an Image**
+   - Click the "Choose File" button to upload an image (JPEG or PNG).
+   - Wait for the application to process the image and extract dominant colors.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. **Review Results**
+   - **Extracted Colors**: View the 5 dominant colors displayed as swatches with their hex codes.
+   - **Brand Compliance**: 
+     - ✅ Green check = Direct match with brand colors (Delta E < 10).
+     - 🔍 Magnifier = Closest brand color suggestion.
+   - **Accessibility Warnings**:
+     - Low-contrast color pairs (contrast ratio < 4.5:1).
+     - Colorblind-specific contrast issues.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Interpret Warnings**
+   - Red text indicates failing combinations.
+   - Hover over issues for detailed contrast ratios.
+   - Colorblind impact notes show affected vision types.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **React**: UI framework for building the application.
+- **ColorThief**: Library for extracting dominant colors from images.
+- **chroma.js**: Library for color manipulation and contrast calculations.
+- **Delta E (CIE76)**: Algorithm for calculating color differences.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Core Functionality
 
-## Learn More
+1. **Image Processing**
+   - Uploaded images are processed using HTML5 Canvas.
+   - Dominant colors are extracted using the median cut algorithm.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Brand Compliance**
+   - Extracted colors are compared to the predefined brand palette.
+   - Delta E (CIE76) is used to calculate color differences.
+   - Colors with Delta E < 10 are considered matches.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Accessibility Checks**
+   - Contrast ratios are calculated using WCAG 2.1 guidelines.
+   - Colorblindness simulations are applied to test accessibility.
+
+## Colorblind Simulation
+
+The application simulates three types of colorblindness:
+
+1. **Protanopia** (Red-blindness)
+   - Red channel: `0.567R + 0.433G`
+   - Green channel: `0.558R + 0.442G`
+   - Blue channel: `B`
+
+2. **Deuteranopia** (Green-blindness)
+   - Red channel: `0.625R + 0.375G`
+   - Green channel: `0.7R + 0.3G`
+   - Blue channel: `B`
+
+3. **Tritanopia** (Blue-blindness)
+   - Red channel: `R`
+   - Green channel: `0.95G + 0.05B`
+   - Blue channel: `0.433G + 0.567B`
+  
+ ## Acknowledgements
+
+I would like to express my heartfelt gratitude to **Om Yadav** for their invaluable support and guidance throughout the development of this project. Their assistance and encouragement were instrumental in overcoming challenges and bringing this project to completion. Thank you for always lending a helping hand when in need!
+
+Github profile - github.com/OmYadav3
