@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ColorThief from 'colorthief';
 import chroma from 'chroma-js';
-import './ColorTester.css'; // Create this CSS file
+import './ColorTester.css'; 
 
 const brandColors = {
   primary: { red: '#FF0000', deepNavy: '#003DA5' },
